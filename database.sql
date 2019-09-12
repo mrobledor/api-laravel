@@ -3,6 +3,7 @@ USE apilaravel;
 
 CREATE TABLE users(
   id int(255) auto_increment not null,
+  email varchar(255),
   role varchar(20),
   name varchar(255),
   surname varchar(255),
