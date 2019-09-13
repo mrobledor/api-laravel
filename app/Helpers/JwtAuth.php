@@ -8,7 +8,7 @@ use App\User;
 class JwtAuth{
   public $key;
   public function __construct(){
-    $this->key= 'esta-es-mi-clave-secreta-*7894654684654849'
+    $this->key= 'esta-es-mi-clave-secreta-*7894654684654849';
   }
 
   public function signup($email, $password, $getToken=null){
@@ -36,7 +36,7 @@ class JwtAuth{
               $jwt= JWT::encode($token, $this->key,'HS256');
               $decoded= JWT::decode($jwt,$this->key,array('HS256'));
 
-              if(!is_null($getToken)){
+              if(is_null($getToken)){
                 return $jwt;
               }else{
                 return $decoded;
@@ -65,7 +65,6 @@ class JwtAuth{
     }
     if($getIdentity){
       return $decoded;
-
     }
     return $auth;
   }
